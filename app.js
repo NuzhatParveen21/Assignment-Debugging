@@ -45,8 +45,13 @@ const selectItem = (event, img) => {
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
-  } else {
-    sliders.pop(img);
+  }
+  else {
+    for (let i = 0; i < sliders.length; i++) {
+      if (sliders[i] === img) {
+        sliders.splice(i, 1);
+      }
+    }
   }
 
 }
@@ -148,7 +153,7 @@ searchBtn.addEventListener('click', function () {
 
 sliderBtn.addEventListener('click', function () {
   createSlider();
-  document.getElementById("slider-numbers").innerText= `Number Of Sliders: ${sliders.length}`;
+  document.getElementById("slider-numbers").innerText = `Number Of Sliders: ${sliders.length}`;
 })
 
 
